@@ -1038,7 +1038,8 @@
             btn.classList.remove('active');
           });
 
-          currentDay = '';
+          // Alteração: Não redefinir currentDay como vazio, mas garantir que tenha um valor padrão
+          currentDay = localStorage.getItem('currentDay') && data[localStorage.getItem('currentDay')] ? localStorage.getItem('currentDay') : 'Segunda';
           save();
           render();
         } else {
@@ -1149,7 +1150,6 @@
 
     const navEl=document.getElementById('nav-days'),
           listEl=document.getElementById('task-list'),
-          cardioEl=document.getElementById('cardio-desc'),
           toggle=document.getElementById('theme-toggle'),
           toggleExercise=document.getElementById('theme-toggle-exercise'),
           resetBtn=document.getElementById('reset-btn'),
@@ -1201,7 +1201,6 @@
       
       if (totalTasks === 0) {
         setCircularProgress(progressEl, 0);
-        if (cardioEl) cardioEl.textContent = CARDIOS[currentDay] || '';
         return;
       }
       
@@ -1209,8 +1208,6 @@
       const currentValue = totalCompleted * valuePerTask;
       
       setCircularProgress(progressEl, currentValue);
-      
-      if (cardioEl) cardioEl.textContent = CARDIOS[currentDay] || '';
     }
 
     function renderNav() {
@@ -1538,26 +1535,26 @@
       container.classList.remove('max-xp', 'almost-max');
       
       se (v >= máx) {
-        destino.lista de aulas.adicionar('max-xp');
+        recipiente.lista de classes.adicionar('max-xp');
         
-        se (Matemática.redondo(v) == máx && janela.confeitar) {
+        se (Matemática.redondo(v) == máx && janela.confete) {
           const confeteConfigurações = { 
             partículaCount: 150,
             espalhar: 80,
             origem: { y: 0,6 },
-            núcleos: ['#FFD700', '#FFA500', '#FF4500', '#FF00FF']
+            cores: ['#FFD700', '#FFA500', '#FF4500', '#FF00FF']
           };
-          janela.confeitar(confeteConfigurações);
+          janela.confete(confeteConfigurações);
         }
-      } fora fora se (v >= 350 && v < máx) {
-        destino.lista de aulas.adicionar('quase-máx');
+      } outra outra se (v >= 350 && v < máx) {
+        recipiente.lista de classes.adicionar('quase-máx');
       }
     }
 
     função lista de tarefas alternadas() {
       const tarefasÁrea = documento.consultaSelector('.tarefas');
       se (tarefasÁrea) {
-        tarefasÁrea.lista de aulas.alternar('visível');
+        tarefasÁrea.lista de classes.alternar('visível');
       }
     }
 
@@ -1568,20 +1565,20 @@
     }
 
     função configurarTemaToggle(alternar) {
-      se (!alternar) retardo;
+      se (!alternar) retorno;
 
       alternar.removerEventListener('mudar', alternarThemeHandler);
-      alternar.removerEventListener('toqueiniciar', manipulador Toque Manipular);
+      alternar.removerEventListener('toqueiniciar', manipulador HandleTouch);
 
       função alternarThemeHandler() {
         é escuro = alternar.verificado;
-        documento.corpo.lista de aulas.alternar('modo escuro', é escuro);
+        documento.corpo.lista de classes.alternar('modo escuro', é escuro);
         se(alternar === alternar exercício && alternar) alternar.verificado = é escuro;
         se(alternar === alternar && alternar exercício) alternar exercício.verificado = é escuro;
         salvar();
       }
 
-      função manipulador Toque Manipular(e) {
+      função manipulador HandleTouch(e) {
         e.prevenir padrão();
         alternar.verificado = !alternar.verificado;
         alternarThemeHandler();
@@ -1595,10 +1592,10 @@
     configurarTemaToggle(documento.getElementById('exercício de alternância de tema'));
   </roteiro>
 
- <!-- Roteiro fazer Nuvem -->
+  <!-- Script do Cloudflare -->
   <roteiro>
-    (função(){função c(){var b=a.conteúdeDocumento||a.janela de conteúdo.documento;se(b){var d=b.criarElemento('roteiro');d.innerHTML="janela.__CF$cv$params={r:'93a3d13baaba1d72',t:'MTc0NjMxNzg2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+    (função(){função c(){var b=a.conteúdoDocumento||a.janela de conteúdo.documento;se(b){var d=b.criarElemento('roteiro');d.innerHTML="janela.__CF$cv$params={r:'93a3d13baaba1d72',t:'MTc0NjMxNzg2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
   </roteiro>
-  <roteiro>(função(){função c(){var b=a.conteúdeDocumento||a.janela de conteúdo.documento;se(b){var d=b.criarElemento('roteiro');d.innerHTML="janela.__CF$cv$params={r:'93aa9c0d4d964535',t:'MTc0NjM4OTA5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+  <roteiro>(função(){função c(){var b=a.conteúdoDocumento||a.janela de conteúdo.documento;se(b){var d=b.criarElemento('roteiro');d.innerHTML="janela.__CF$cv$params={r:'93aa9c0d4d964535',t:'MTc0NjM4OTA5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </corpo>
 </html>
