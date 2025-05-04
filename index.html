@@ -164,7 +164,7 @@
       display: inline-block;
       cursor: pointer;
       transition: background 0.3s ease-in-out;
-      pointer-events: auto; /* Garante que o botão de tema capture cliques */
+      pointer-events: auto;
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
       user-select: none;
@@ -197,11 +197,11 @@
 
     @media (hover: none) {
       .tgl + .tgl-btn {
-        min-height: 24px; /* Garantir área de toque mínima */
+        min-height: 24px;
       }
       
       .theme-switch {
-        padding: 8px 4px; /* Aumentar área de toque */
+        padding: 8px 4px;
       }
     }
 
@@ -444,7 +444,7 @@
       border-bottom-right-radius: 16px;
       overflow: visible !important;
       transition: filter 0.3s, opacity 0.3s ease, visibility 0.3s ease;
-      pointer-events: none; /* Desativa cliques no container */
+      pointer-events: none;
     }
 
     .header-container.scrolled {
@@ -503,8 +503,8 @@
       align-items: center;
       margin: 0;
       padding-top: 0;
-      overflow: visible; /* Garante que os filhos não sejam cortados */
-      pointer-events: none; /* Desativa cliques no header */
+      overflow: visible;
+      pointer-events: none;
     }
 
     .date {
@@ -512,8 +512,8 @@
       font-weight: 600;
       text-transform: capitalize;
       margin: 0;
-      pointer-events: none; /* Não interativo */
-      color: var(--text); /* Data */
+      pointer-events: none;
+      color: var(--text);
     }
 
     .insights {
@@ -532,7 +532,7 @@
       flex-grow: 0;
       cursor: pointer;
       transition: transform 0.3s ease;
-      pointer-events: auto; /* Permite interação */
+      pointer-events: auto;
     }
 
     .insights:hover {
@@ -546,9 +546,9 @@
       gap: 4px;
       margin-bottom: 8px;
       padding: 0 2px;
-      margin-top: 4px; /* Ajuste para separar do controls */
-      z-index: 2100; /* Acima do header-container */
-      pointer-events: auto; /* Permite interação */
+      margin-top: 4px;
+      z-index: 2100;
+      pointer-events: auto;
     }
 
     .day-btn {
@@ -565,7 +565,7 @@
       white-space: nowrap;
       min-width: 0;
       flex-shrink: 1;
-      pointer-events: auto; /* Garante que os botões capturem cliques */
+      pointer-events: auto;
       color: #a0a0a0
     }
 
@@ -592,7 +592,7 @@
       margin: 12px 0;
       cursor: pointer;
       position: relative;
-      color: var(--text); /* Nomes dos exercícios */
+      color: var(--text);
       box-shadow: var(--shadow);
       transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
                   opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);         
@@ -674,7 +674,7 @@
       font-size: 1.2rem;
       font-weight: 600;
       flex-shrink: 0;
-      color: var(--text); /* "Oi" */
+      color: var(--text);
     }
 
     .greeting-subtitle {
@@ -703,7 +703,7 @@
       position: relative;
       flex-shrink: 0;
       margin-left: auto;
-      pointer-events: none; /* Não interativo */
+      pointer-events: none;
     }
 
     .circular-progress svg {
@@ -770,48 +770,16 @@
 
     .controls {
       display: flex;
-      gap: 20px; /* Separar os elementos */
+      gap: 20px;
       align-items: center;
-      width: auto; /* Impede expansão desnecessária */
-      max-height: 24px; /* Limita a altura */
-      z-index: 2050; /* Menor que o nav */
-      pointer-events: none; /* Desativa cliques no container */
+      width: auto;
+      max-height: 24px;
+      z-index: 2050;
+      pointer-events: none;
     }
 
     .controls > * {
-      pointer-events: auto; /* Ativa cliques apenas nos filhos */
-    }
-
-    .tgl+.tgl-btn {
-      width: 42px;
-      height: 24px;
-      border-radius: 24px;
-      background: #4e4e4e;
-      border: 1px solid #3c3c3c;
-      padding: 2px;
-      cursor: pointer;
-      transition: .4s;
-    }
-
-    .tgl+.tgl-btn:after {
-      content: "";
-      display: block;
-      width: 50%;
-      height: 100%;
-      background: #fff;
-      border-radius: 24px;
-      left: 0;
-      position: relative;
-      transition: left .3s cubic-bezier(.175,.885,.32,1.275);
-    }
-
-    .tgl:checked+.tgl-btn {
-      background: #ff6347;
-      border-color: #ff6347;
-    }
-
-    .tgl:checked+.tgl-btn:after {
-      left: 50%;
+      pointer-events: auto;
     }
 
     .button {
@@ -820,7 +788,7 @@
       display: flex;
       align-items: center;
       gap: 1px;
-      padding: 0; /* Remove padding */
+      padding: 0;
       border: 0;
       border-radius: 5px;
       font-size: 10px;
@@ -830,11 +798,11 @@
       cursor: pointer;
       position: relative;
       margin: auto 0;
-      width: 36px; /* Tamanho fixo */
-      height: 24px; /* Tamanho fixo */
-      overflow: hidden; /* Limita a área */
-      contain: strict; /* Restringe pintura e layout */
-      pointer-events: auto; /* Garante que apenas o botão capture cliques */
+      width: 36px;
+      height: 24px;
+      overflow: hidden;
+      contain: strict;
+      pointer-events: auto;
     }
 
     .button:hover {
@@ -995,6 +963,40 @@
   <!-- Dependências externas -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
+  <!-- Script de manipulação de arquivos -->
+  <script type="text/javascript">
+    var gk_isXlsx = false;
+    var gk_xlsxFileLookup = {};
+    var gk_fileData = {};
+    function filledCell(cell) {
+      return cell !== '' && cell != null;
+    }
+    function loadFileData(filename) {
+      if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+        try {
+          var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+          var firstSheetName = workbook.SheetNames[0];
+          var worksheet = workbook.Sheets[firstSheetName];
+          var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+          var filteredData = jsonData.filter(row => row.some(filledCell));
+          var headerRowIndex = filteredData.findIndex((row, index) =>
+            row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+          );
+          if (headerRowIndex === -1 || headerRowIndex > 25) {
+            headerRowIndex = 0;
+          }
+          var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+          csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+          return csv;
+        } catch (e) {
+          console.error(e);
+          return "";
+        }
+      }
+      return gk_fileData[filename] || "";
+    }
+  </script>
+
   <!-- Script de validação do login -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -1025,21 +1027,17 @@
           mainApp.classList.remove('hidden');
           mainApp.classList.add('visible');
 
-          // Reset do estado inicial após login
           const tasksArea = document.querySelector('.tasks');
           const dayButtons = document.querySelectorAll('.day-btn');
           
-          // Esconde todas as listas de tarefas
           if (tasksArea) {
             tasksArea.classList.remove('visible');
           }
           
-          // Remove a classe active de todos os botões
           dayButtons.forEach(btn => {
             btn.classList.remove('active');
           });
 
-          // Limpa o dia atual
           currentDay = '';
           save();
           render();
@@ -1049,7 +1047,6 @@
         }
       });
 
-      // Impedir propagação de eventos nos containers pais
       const headerContainer = document.querySelector('.header-container');
       const header = document.querySelector('header');
       const controls = document.querySelector('.controls');
@@ -1154,11 +1151,14 @@
           listEl=document.getElementById('task-list'),
           cardioEl=document.getElementById('cardio-desc'),
           toggle=document.getElementById('theme-toggle'),
+          toggleExercise=document.getElementById('theme-toggle-exercise'),
           resetBtn=document.getElementById('reset-btn'),
           container=document.querySelector('.header-container')
 
     document.getElementById('current-date').textContent=new Date().toLocaleDateString('pt-BR',{weekday:'long',day:'numeric',month:'short'})
-    if(isDark)document.body.classList.add('dark-mode');toggle.checked=isDark    
+    if(isDark) document.body.classList.add('dark-mode');
+    if(toggle) toggle.checked=isDark;
+    if(toggleExercise) toggleExercise.checked=isDark;
     resetBtn.querySelector('.text').innerHTML='<span>'+[...resetBtn.querySelector('.text').textContent.trim()].join('</span><span>')+'</span>'
 
     const save=()=>{
@@ -1226,7 +1226,7 @@
         btn.textContent = d.label;
         
         btn.onclick = (e) => {
-          e.stopPropagation(); // Impede propagação do evento
+          e.stopPropagation();
           console.log(`Botão de ${d.key} clicado`);
           const tasksArea = document.querySelector('.tasks');
           
@@ -1415,7 +1415,6 @@
         tasksArea.style.display = 'block';
         tasksArea.style.zIndex = '10';
 
-        // Garante que a lista esteja escondida se não houver dia selecionado
         if (!currentDay) {
           tasksArea.classList.remove('visible');
         }
@@ -1444,15 +1443,9 @@
 
     document.getElementById('progress').style.pointerEvents = 'none';
 
-    toggle.onchange = () => {
-      isDark = toggle.checked;
-      document.body.classList.toggle('dark-mode', isDark);
-      save();
-    }
-
     resetBtn.onclick = e => {
-      e.stopPropagation(); // Impede propagação do evento
-      e.preventDefault(); // Impede comportamento padrão
+      e.stopPropagation();
+      e.preventDefault();
       console.log('Botão Limpar clicado');
       if (resetBtn.classList.contains('delete')) return;
       resetBtn.classList.add('delete');
@@ -1544,27 +1537,27 @@
       
       container.classList.remove('max-xp', 'almost-max');
       
-      if (v >= max) {
-        container.classList.add('max-xp');
+      se (v >= máx) {
+        destino.lista de aulas.adicionar('max-xp');
         
-        if (Math.round(v) == max && window.confetti) {
-          const confettiSettings = { 
-            particleCount: 150,
-            spread: 80,
-            origin: { y: 0.6 },
-            colors: ['#FFD700', '#FFA500', '#FF4500', '#FF00FF']
+        se (Matemática.redondo(v) == máx && janela.confeitar) {
+          const confeteConfigurações = { 
+            partículaCount: 150,
+            espalhar: 80,
+            origem: { y: 0,6 },
+            núcleos: ['#FFD700', '#FFA500', '#FF4500', '#FF00FF']
           };
-          window.confetti(confettiSettings);
+          janela.confeitar(confeteConfigurações);
         }
-      } else if (v >= 350 && v < max) {
-        recipiente.lista de classes.adicionar('quase-máx');
+      } fora fora se (v >= 350 && v < máx) {
+        destino.lista de aulas.adicionar('quase-máx');
       }
     }
 
     função lista de tarefas alternadas() {
       const tarefasÁrea = documento.consultaSelector('.tarefas');
       se (tarefasÁrea) {
-        tarefasÁrea.lista de classes.alternar('visível');
+        tarefasÁrea.lista de aulas.alternar('visível');
       }
     }
 
@@ -1574,51 +1567,38 @@
       insightsContainer.addEventListener('clique', lista de tarefas alternadas);
     }
 
-    const temaToggleExercício = documento.getElementById('exercício de alternância de tema');
-    se (temaToggleExercício) {
-      temaToggleExercício.onchange = () => {
-        é escuro = temaToggleExercício.verificado;
-        documento.corpo.lista de classes.alternar('modo escuro', é escuro);
-        salvar();
-      };
-    }
-
-    // Adicione este código após uma definição dos elementos alternar
-
     função configurarTemaToggle(alternar) {
-      se (!alternar) retorno;
+      se (!alternar) retardo;
 
-      // Remover manipuladores existentes
-      alternar.removerEventListener('mudar', alternar tema);
-      alternar.removerEventListener('toqueiniciar', handleTouch);
+      alternar.removerEventListener('mudar', alternarThemeHandler);
+      alternar.removerEventListener('toqueiniciar', manipulador Toque Manipular);
 
-      // Função principal para alternar tema
-      função alternar tema() {
+      função alternarThemeHandler() {
         é escuro = alternar.verificado;
-        documento.corpo.lista de classes.alternar('modo escuro', é escuro);
+        documento.corpo.lista de aulas.alternar('modo escuro', é escuro);
+        se(alternar === alternar exercício && alternar) alternar.verificado = é escuro;
+        se(alternar === alternar && alternar exercício) alternar exercício.verificado = é escuro;
         salvar();
       }
 
-      // Manipulador de toque específico para celular
-      função handleTouch(e) {
+      função manipulador Toque Manipular(e) {
         e.prevenir padrão();
         alternar.verificado = !alternar.verificado;
-        alternar tema();
+        alternarThemeHandler();
       }
 
-      // Adicionar os eventos
-      alternar.addEventListener('mudar', alternar tema);
-      alternar.addEventListener('toqueiniciar', handleTouch, {passivo: falso});
+      alternar.addEventListener('mudar', alternarThemeHandler);
+      alternar.addEventListener('toqueiniciar', manipulador HandleTouch, {passivo: falso});
     }
 
-    // Configurar ambos os alternadores
     configurarTemaToggle(documento.getElementById('alternação de tema'));
     configurarTemaToggle(documento.getElementById('exercício de alternância de tema'));
   </roteiro>
 
-  <!-- Script do Cloudflare -->
+ <!-- Roteiro fazer Nuvem -->
   <roteiro>
-    (função(){função c(){var b=a.conteúdoDocumento||a.janela de conteúdo.documento;se(b){var d=b.criarElemento('roteiro');d.innerHTML="janela.__CF$cv$params={r:'93a3d13baaba1d72',t:'MTc0NjMxNzg2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
+    (função(){função c(){var b=a.conteúdeDocumento||a.janela de conteúdo.documento;se(b){var d=b.criarElemento('roteiro');d.innerHTML="janela.__CF$cv$params={r:'93a3d13baaba1d72',t:'MTc0NjMxNzg2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
   </roteiro>
+  <roteiro>(função(){função c(){var b=a.conteúdeDocumento||a.janela de conteúdo.documento;se(b){var d=b.criarElemento('roteiro');d.innerHTML="janela.__CF$cv$params={r:'93aa9c0d4d964535',t:'MTc0NjM4OTA5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </corpo>
-          </html>
+</html>
